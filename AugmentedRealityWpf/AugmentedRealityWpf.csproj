@@ -66,12 +66,161 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="AR\AbstractMarkerDetector.cs" />
+    <Compile Include="AR\ArgbPixelReader.cs" />
+    <Compile Include="AR\Convert.cs" />
+    <Compile Include="AR\DetectionResult.cs" />
+    <Compile Include="AR\DetectionResults.cs" />
+    <Compile Include="AR\GrayBufferMarkerDetector.cs" />
+    <Compile Include="AR\GrayBufferReader.cs" />
+    <Compile Include="AR\IXrgbReader.cs" />
+    <Compile Include="AR\Marker.cs" />
+    <Compile Include="AR\PatternMatcher.cs" />
+    <Compile Include="AR\Square.cs" />
+    <Compile Include="AR\SquareDetectionListener.cs" />
+    <Compile Include="AR\XrgbIRaster.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="NyARToolkit\core\analyzer\histogram\INyARHistogramAnalyzer_Threshold.cs" />
+    <Compile Include="NyARToolkit\core\analyzer\histogram\NyARHistogramAnalyzer_DiscriminantThreshold.cs" />
+    <Compile Include="NyARToolkit\core\analyzer\histogram\NyARHistogramAnalyzer_KittlerThreshold.cs" />
+    <Compile Include="NyARToolkit\core\analyzer\histogram\NyARHistogramAnalyzer_SlidePTile.cs" />
+    <Compile Include="NyARToolkit\core\analyzer\raster\NyARRasterAnalyzer_Histogram.cs" />
+    <Compile Include="NyARToolkit\core\analyzer\raster\threshold\INyARRasterThresholdAnalyzer.cs" />
+    <Compile Include="NyARToolkit\core\analyzer\raster\threshold\NyARRasterThresholdAnalyzer_SlidePTile.cs" />
+    <Compile Include="NyARToolkit\core\labeling\artoolkit\NyARLabelingImage.cs" />
+    <Compile Include="NyARToolkit\core\labeling\artoolkit\NyARLabelingLabel.cs" />
+    <Compile Include="NyARToolkit\core\labeling\artoolkit\NyARLabelingLabelStack.cs" />
+    <Compile Include="NyARToolkit\core\labeling\artoolkit\NyARLabeling_ARToolKit.cs" />
+    <Compile Include="NyARToolkit\core\labeling\NyARLabelInfo.cs" />
+    <Compile Include="NyARToolkit\core\labeling\NyARLabelInfoStack.cs" />
+    <Compile Include="NyARToolkit\core\labeling\NyLabelOverlapChecker.cs" />
+    <Compile Include="NyARToolkit\core\labeling\rlelabeling\NyARLabeling_Rle.cs" />
+    <Compile Include="NyARToolkit\core\labeling\rlelabeling\NyRleLabelFragmentInfoStack.cs" />
+    <Compile Include="NyARToolkit\core\match\INyARMatchPatt.cs" />
+    <Compile Include="NyARToolkit\core\match\NyARMatchPattDeviationBlackWhiteData.cs" />
+    <Compile Include="NyARToolkit\core\match\NyARMatchPattDeviationColorData.cs" />
+    <Compile Include="NyARToolkit\core\match\NyARMatchPattResult.cs" />
+    <Compile Include="NyARToolkit\core\match\NyARMatchPatt_BlackWhite.cs" />
+    <Compile Include="NyARToolkit\core\match\NyARMatchPatt_Color_WITHOUT_PCA.cs" />
+    <Compile Include="NyARToolkit\core\NyARCode.cs" />
+    <Compile Include="NyARToolkit\core\NyARMat.cs" />
+    <Compile Include="NyARToolkit\core\NyARVec.cs" />
+    <Compile Include="NyARToolkit\core\NyARVersion.cs" />
+    <Compile Include="NyARToolkit\core\param\INyARCameraDistortionFactor.cs" />
+    <Compile Include="NyARToolkit\core\param\NyARCameraDistortionFactor.cs" />
+    <Compile Include="NyARToolkit\core\param\NyARObserv2IdealMap.cs" />
+    <Compile Include="NyARToolkit\core\param\NyARParam.cs" />
+    <Compile Include="NyARToolkit\core\param\NyARPerspectiveProjectionMatrix.cs" />
+    <Compile Include="NyARToolkit\core\pca2d\INyARPca2d.cs" />
+    <Compile Include="NyARToolkit\core\pca2d\NyARPca2d_MatrixPCA.cs" />
+    <Compile Include="NyARToolkit\core\pca2d\NyARPca2d_MatrixPCA_O2.cs" />
+    <Compile Include="NyARToolkit\core\pickup\INyARColorPatt.cs" />
+    <Compile Include="NyARToolkit\core\pickup\NyARColorPatt_O3.cs" />
+    <Compile Include="NyARToolkit\core\pickup\NyARColorPatt_Perspective.cs" />
+    <Compile Include="NyARToolkit\core\pickup\NyARColorPatt_Perspective_O2.cs" />
+    <Compile Include="NyARToolkit\core\pickup\NyARColorPatt_PseudoAffine.cs" />
+    <Compile Include="NyARToolkit\core\rasterfilter\gs2bin\INyARRasterFilter_Gs2Bin.cs" />
+    <Compile Include="NyARToolkit\core\rasterfilter\gs2bin\NyARRasterFilter_ConstantThreshold.cs" />
+    <Compile Include="NyARToolkit\core\rasterfilter\INyARRasterFilter.cs" />
+    <Compile Include="NyARToolkit\core\rasterfilter\NyARRasterFilter_CustomToneTable.cs" />
+    <Compile Include="NyARToolkit\core\rasterfilter\NyARRasterFilter_EqualizeHist.cs" />
+    <Compile Include="NyARToolkit\core\rasterfilter\NyARRasterFilter_GaussianSmooth.cs" />
+    <Compile Include="NyARToolkit\core\rasterfilter\NyARRasterFilter_Reverse.cs" />
+    <Compile Include="NyARToolkit\core\rasterfilter\NyARRasterFilter_Rgb2Hsv.cs" />
+    <Compile Include="NyARToolkit\core\rasterfilter\NyARRasterFilter_Roberts.cs" />
+    <Compile Include="NyARToolkit\core\rasterfilter\NyARRasterFilter_SimpleSmooth.cs" />
+    <Compile Include="NyARToolkit\core\rasterfilter\NyARRasterFilter_ToneTable.cs" />
+    <Compile Include="NyARToolkit\core\rasterfilter\rgb2bin\INyARRasterFilter_Rgb2Bin.cs" />
+    <Compile Include="NyARToolkit\core\rasterfilter\rgb2bin\NyARRasterFilter_AdaptiveThreshold.cs" />
+    <Compile Include="NyARToolkit\core\rasterfilter\rgb2bin\NyARRasterFilter_ARToolkitThreshold.cs" />
+    <Compile Include="NyARToolkit\core\rasterfilter\rgb2gs\INyARRasterFilter_Rgb2Gs.cs" />
+    <Compile Include="NyARToolkit\core\rasterfilter\rgb2gs\NyARRasterFilter_Rgb2Gs_AveAdd.cs" />
+    <Compile Include="NyARToolkit\core\rasterfilter\rgb2gs\NyARRasterFilter_Rgb2Gs_RgbCube.cs" />
+    <Compile Include="NyARToolkit\core\rasterfilter\rgb2gs\NyARRasterFilter_Rgb2Gs_YCbCr.cs" />
+    <Compile Include="NyARToolkit\core\rasterreader\INyARRgbPixelReader.cs" />
+    <Compile Include="NyARToolkit\core\rasterreader\NyARRgbPixelReader_BYTE1D_B8G8R8X8.cs" />
+    <Compile Include="NyARToolkit\core\rasterreader\NyARRgbPixelReader_BYTE1D_R8G8B8_24.cs" />
+    <Compile Include="NyARToolkit\core\rasterreader\NyARRgbPixelReader_BYTE1D_X8R8G8B8_32.cs" />
+    <Compile Include="NyARToolkit\core\rasterreader\NyARRgbPixelReader_INT1D_GRAY_8.cs" />
+    <Compile Include="NyARToolkit\core\rasterreader\NyARRgbPixelReader_INT1D_X8R8G8B8_32.cs" />
+    <Compile Include="NyARToolkit\core\rasterreader\NyARVectorReader_INT1D_GRAY_8.cs" />
+    <Compile Include="NyARToolkit\core\raster\INyARRaster.cs" />
+    <Compile Include="NyARToolkit\core\raster\NyARBinRaster.cs" />
+    <Compile Include="NyARToolkit\core\raster\NyARGrayscaleRaster.cs" />
+    <Compile Include="NyARToolkit\core\raster\NyARHsvRaster.cs" />
+    <Compile Include="NyARToolkit\core\raster\NyARRaster.cs" />
+    <Compile Include="NyARToolkit\core\raster\NyARRaster_BasicClass.cs" />
+    <Compile Include="NyARToolkit\core\raster\rgb\INyARRgbRaster.cs" />
+    <Compile Include="NyARToolkit\core\raster\rgb\NyARRgbRaster.cs" />
+    <Compile Include="NyARToolkit\core\raster\rgb\NyARRgbRaster_BasicClass.cs" />
+    <Compile Include="NyARToolkit\core\raster\rgb\NyARRgbRaster_BGRA.cs" />
+    <Compile Include="NyARToolkit\core\raster\rgb\NyARRgbRaster_Blank.cs" />
+    <Compile Include="NyARToolkit\core\raster\rgb\NyARRgbRaster_RGB.cs" />
+    <Compile Include="NyARToolkit\core\squaredetect\NyARSquare.cs" />
+    <Compile Include="NyARToolkit\core\squaredetect\NyARSquareContourDetector.cs" />
+    <Compile Include="NyARToolkit\core\squaredetect\NyARSquareContourDetector_ARToolKit.cs" />
+    <Compile Include="NyARToolkit\core\squaredetect\NyARSquareContourDetector_Rle.cs" />
+    <Compile Include="NyARToolkit\core\squaredetect\NyARSquareStack.cs" />
+    <Compile Include="NyARToolkit\core\squaredetect\NyContourPickup.cs" />
+    <Compile Include="NyARToolkit\core\squaredetect\NyCoord2Linear.cs" />
+    <Compile Include="NyARToolkit\core\squaredetect\NyCoord2SquareVertexIndexes.cs" />
+    <Compile Include="NyARToolkit\core\transmat\INyARTransMat.cs" />
+    <Compile Include="NyARToolkit\core\transmat\NyARRectOffset.cs" />
+    <Compile Include="NyARToolkit\core\transmat\NyARTransMat.cs" />
+    <Compile Include="NyARToolkit\core\transmat\NyARTransMatResult.cs" />
+    <Compile Include="NyARToolkit\core\transmat\NyARTransMat_ARToolKit.cs" />
+    <Compile Include="NyARToolkit\core\transmat\optimize\artoolkit\INyARRotMatrixOptimize.cs" />
+    <Compile Include="NyARToolkit\core\transmat\optimize\artoolkit\NyARRotMatrixOptimize_O2.cs" />
+    <Compile Include="NyARToolkit\core\transmat\optimize\NyARPartialDifferentiationOptimize.cs" />
+    <Compile Include="NyARToolkit\core\transmat\rotmatrix\NyARRotMatrix.cs" />
+    <Compile Include="NyARToolkit\core\transmat\rotmatrix\NyARRotMatrix_ARToolKit.cs" />
+    <Compile Include="NyARToolkit\core\transmat\rotmatrix\NyARRotMatrix_ARToolKit_O2.cs" />
+    <Compile Include="NyARToolkit\core\transmat\rotmatrix\NyARRotVector.cs" />
+    <Compile Include="NyARToolkit\core\transmat\solver\INyARTransportVectorSolver.cs" />
+    <Compile Include="NyARToolkit\core\transmat\solver\NyARTransportVectorSolver.cs" />
+    <Compile Include="NyARToolkit\core\transmat\solver\NyARTransportVectorSolver_ARToolKit.cs" />
+    <Compile Include="NyARToolkit\core\types\matrix\INyARDoubleMatrix.cs" />
+    <Compile Include="NyARToolkit\core\types\matrix\NyARDoubleMatrix22.cs" />
+    <Compile Include="NyARToolkit\core\types\matrix\NyARDoubleMatrix33.cs" />
+    <Compile Include="NyARToolkit\core\types\matrix\NyARDoubleMatrix34.cs" />
+    <Compile Include="NyARToolkit\core\types\matrix\NyARDoubleMatrix44.cs" />
+    <Compile Include="NyARToolkit\core\types\NyARBufferType.cs" />
+    <Compile Include="NyARToolkit\core\types\NyARDoublePoint2d.cs" />
+    <Compile Include="NyARToolkit\core\types\NyARDoublePoint3d.cs" />
+    <Compile Include="NyARToolkit\core\types\NyARHistogram.cs" />
+    <Compile Include="NyARToolkit\core\types\NyARIntPoint.cs" />
+    <Compile Include="NyARToolkit\core\types\NyARIntPoint2d.cs" />
+    <Compile Include="NyARToolkit\core\types\NyARIntRect.cs" />
+    <Compile Include="NyARToolkit\core\types\NyARIntSize.cs" />
+    <Compile Include="NyARToolkit\core\types\NyARLinear.cs" />
+    <Compile Include="NyARToolkit\core\types\stack\NyARIntPointStack.cs" />
+    <Compile Include="NyARToolkit\core\types\stack\NyARIntRectStack.cs" />
+    <Compile Include="NyARToolkit\core\types\stack\NyARObjectStack.cs" />
+    <Compile Include="NyARToolkit\core\utils\NyAREquationSolver.cs" />
+    <Compile Include="NyARToolkit\core\utils\NyARMath.cs" />
+    <Compile Include="NyARToolkit\core\utils\NyARPerspectiveParamGenerator.cs" />
+    <Compile Include="NyARToolkit\core\utils\NyARPerspectiveParamGenerator_O1.cs" />
+    <Compile Include="NyARToolkit\core\utils\NyARSystemOfLinearEquationsProcessor.cs" />
+    <Compile Include="NyARToolkit\detector\NyARCustomSingleDetectMarker.cs" />
+    <Compile Include="NyARToolkit\detector\NyARDetectMarker.cs" />
+    <Compile Include="NyARToolkit\detector\NyARSingleDetectMarker.cs" />
+    <Compile Include="NyARToolkit\NyARException.cs" />
+    <Compile Include="NyARToolkit\nyidmarker\data\INyIdMarkerData.cs" />
+    <Compile Include="NyARToolkit\nyidmarker\data\INyIdMarkerDataEncoder.cs" />
+    <Compile Include="NyARToolkit\nyidmarker\data\NyIdMarkerDataEncoder_RawBit.cs" />
+    <Compile Include="NyARToolkit\nyidmarker\data\NyIdMarkerData_RawBit.cs" />
+    <Compile Include="NyARToolkit\nyidmarker\NyIdMarkerParam.cs" />
+    <Compile Include="NyARToolkit\nyidmarker\NyIdMarkerPattern.cs" />
+    <Compile Include="NyARToolkit\nyidmarker\NyIdMarkerPickup.cs" />
+    <Compile Include="NyARToolkit\processor\SingleARMarkerProcesser.cs" />
+    <Compile Include="NyARToolkit\processor\SingleNyIdMarkerProcesser.cs" />
+    <Compile Include="NyARToolkit\utils.cs\ArrayUtils.cs" />
+    <Compile Include="NyARToolkit\utils\TransformedBitmapPickup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -89,6 +238,27 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Content Include="Assets\data\Camera_Calibration_Default.dat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\data\Marker_Hiro_16x16segments_80width.pat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\data\Marker_Hiro_16x16segments_80width.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\data\Marker_L_16x16segments_80width.pat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\data\Marker_L_16x16segments_80width.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\data\Marker_SLAR_16x16segments_80width.pat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\data\Marker_SLAR_16x16segments_80width.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
