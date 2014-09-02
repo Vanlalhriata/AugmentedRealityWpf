@@ -7,7 +7,13 @@
     <Grid>
         
         <StackPanel>
-            <mediaKit:VideoCaptureElement x:Name="videoCaptureElement"/>
+            <TextBlock x:Name="fpsTextBlock" Text="Initializing..."/>
+            <TextBlock x:Name="confidenceTextBlock" Text="Initializing..."/>
+            <Canvas Height="{Binding ActualHeight, ElementName=videoCaptureElement}">
+                <mediaKit:VideoCaptureElement x:Name="videoCaptureElement"/>
+                <Rectangle x:Name="centerMarker" RadiusX="10" RadiusY="10" Width="10" Height="10" Fill="Red" Canvas.Top="20" Canvas.Left="20"/>
+            </Canvas>
+            
             <Button Content="Capture" Click="Button_Click"/>
             <Image x:Name="previewImage"/>
         </StackPanel>
